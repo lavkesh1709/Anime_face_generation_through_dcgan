@@ -1,3 +1,12 @@
+import huggingface_hub as _hf
+if not hasattr(_hf, "HfFolder"):
+    class _HfFolder:
+        @staticmethod
+        def get_token(): return None
+        @staticmethod
+        def save_token(token): pass
+    _hf.HfFolder = _HfFolder
+
 import torch
 import numpy as np
 import gradio as gr
