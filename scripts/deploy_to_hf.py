@@ -4,7 +4,7 @@ from huggingface_hub import HfApi, create_repo
 # Load from .env file if token not in environment
 token = os.environ.get("HF_TOKEN")
 if not token:
-    env_path = os.path.join(os.path.dirname(__file__), ".env")
+    env_path = os.path.join(os.path.dirname(__file__), "..", ".env")
     if os.path.exists(env_path):
         with open(env_path) as f:
             for line in f:
@@ -33,6 +33,7 @@ create_repo(
 print("Space created (or already exists).")
 
 files = [
+    "Dockerfile",
     "app.py",
     "model.py",
     "requirements.txt",

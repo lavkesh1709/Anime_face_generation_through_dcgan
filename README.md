@@ -3,11 +3,9 @@ title: Anime Face Generator
 emoji: 🎌
 colorFrom: purple
 colorTo: pink
-sdk: gradio
-sdk_version: 5.0.0
+sdk: docker
 app_file: app.py
 pinned: false
-python_version: 3.11
 ---
 
 # Anime Face Generation using DCGAN
