@@ -12,9 +12,12 @@ pinned: false
 
 Generate anime faces using a Deep Convolutional GAN (DCGAN) trained on 63,000+ anime face images.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-%F0%9F%A4%97%20Hugging%20Face-blue)](https://huggingface.co/spaces/lavkesh1709/anime-face-generator)
+[![GitHub](https://img.shields.io/badge/GitHub-lavkesh1709%2FAnime--face--generation--through--dcgan-black?logo=github)](https://github.com/lavkesh1709/Anime_face_generation_through_dcgan)
+
 ## Live Demo
 
-[Hugging Face Spaces](https://huggingface.co/spaces/lavkesh1709/anime-face-generator) *(deploy to activate)*
+**Web app:** [https://huggingface.co/spaces/lavkesh1709/anime-face-generator](https://huggingface.co/spaces/lavkesh1709/anime-face-generator)
 
 ## Run Locally
 
