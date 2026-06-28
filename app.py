@@ -8,7 +8,7 @@ WEIGHTS_FILE = "generator.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 generator = build_generator().to(device)
-generator.load_state_dict(torch.load(WEIGHTS_FILE, map_location=device))
+generator.load_state_dict(torch.load(WEIGHTS_FILE, map_location=device, weights_only=True))
 generator.eval()
 
 

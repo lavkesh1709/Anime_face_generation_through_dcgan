@@ -1,3 +1,14 @@
+---
+title: Anime Face Generator
+emoji: 🎌
+colorFrom: purple
+colorTo: pink
+sdk: gradio
+sdk_version: 4.44.0
+app_file: app.py
+pinned: false
+---
+
 # Anime Face Generation using DCGAN
 
 Generate anime faces using a Deep Convolutional GAN (DCGAN) trained on 63,000+ anime face images.
