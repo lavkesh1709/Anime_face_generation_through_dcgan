@@ -4,7 +4,7 @@ emoji: 🎌
 colorFrom: purple
 colorTo: pink
 sdk: gradio
-sdk_version: 4.44.0
+sdk_version: 3.50.2
 app_file: app.py
 pinned: false
 ---
@@ -36,13 +36,16 @@ Then open `http://localhost:7860` in your browser.
 ## Project Structure
 
 ```
-├── app.py                  # Gradio web UI
-├── model.py                # Generator architecture
-├── generator.pth           # Trained generator weights
-├── discriminator.pth       # Trained discriminator weights
-├── requirements.txt        # Dependencies for HF Spaces
-├── training_history.csv    # Loss/score per epoch
-└── Anime_face_generation_through_dcgan.ipynb  # Training notebook (Google Colab)
+├── app.py                   # Gradio web UI (HF Spaces entry point)
+├── model.py                 # Generator architecture
+├── generator.pth            # Trained generator weights
+├── discriminator.pth        # Trained discriminator weights
+├── requirements.txt         # Python dependencies
+├── training_history.csv     # Loss & scores per epoch
+├── notebooks/
+│   └── training.ipynb       # DCGAN training notebook (Google Colab / Kaggle)
+└── scripts/
+    └── deploy_to_hf.py      # Hugging Face Spaces deployment script
 ```
 
 ## Architecture
