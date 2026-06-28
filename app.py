@@ -53,7 +53,7 @@ def generate_faces(num_images: int, seed: int):
     return images
 
 
-with gr.Blocks(title="Anime Face Generator", theme=gr.themes.Soft()) as demo:
+with gr.Blocks(title="Anime Face Generator") as demo:
     gr.Markdown(
         """
         # Anime Face Generator
@@ -98,4 +98,4 @@ with gr.Blocks(title="Anime Face Generator", theme=gr.themes.Soft()) as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=7860)
+    demo.launch(server_name="0.0.0.0", server_port=7860, theme=gr.themes.Soft())
