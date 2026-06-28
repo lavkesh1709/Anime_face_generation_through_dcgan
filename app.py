@@ -7,17 +7,18 @@ if not hasattr(_hf, "HfFolder"):
         def save_token(token): pass
     _hf.HfFolder = _HfFolder
 
-# gradio_client's get_type() crashes when schema is a bool (valid in JSON Schema).
-# Patch it to return "any" for non-dict schemas.
+# gradio_client crashes when _json_schema_to_python_type receives a bool schema
+# (e.g. additionalProperties: true).  Patch the recursive entry-point so every
+# call — including internal recursive ones — bails out early for non-dict input.
 import gradio_client.utils as _gcu
-_orig_get_type = _gcu.get_type
+_orig_jspt = _gcu._json_schema_to_python_type
 
-def _safe_get_type(schema):
+def _safe_jspt(schema, *args, **kwargs):
     if not isinstance(schema, dict):
         return "any"
-    return _orig_get_type(schema)
+    return _orig_jspt(schema, *args, **kwargs)
 
-_gcu.get_type = _safe_get_type
+_gcu._json_schema_to_python_type = _safe_jspt
 
 import torch
 import numpy as np
@@ -97,4 +98,4 @@ with gr.Blocks(title="Anime Face Generator", theme=gr.themes.Soft()) as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(server_name="0.0.0.0", server_port=7860)
