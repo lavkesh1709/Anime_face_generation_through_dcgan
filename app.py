@@ -7,6 +7,18 @@ if not hasattr(_hf, "HfFolder"):
         def save_token(token): pass
     _hf.HfFolder = _HfFolder
 
+# gradio_client's get_type() crashes when schema is a bool (valid in JSON Schema).
+# Patch it to return "any" for non-dict schemas.
+import gradio_client.utils as _gcu
+_orig_get_type = _gcu.get_type
+
+def _safe_get_type(schema):
+    if not isinstance(schema, dict):
+        return "any"
+    return _orig_get_type(schema)
+
+_gcu.get_type = _safe_get_type
+
 import torch
 import numpy as np
 import gradio as gr
@@ -85,4 +97,4 @@ with gr.Blocks(title="Anime Face Generator", theme=gr.themes.Soft()) as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=7860)
+    demo.launch()
